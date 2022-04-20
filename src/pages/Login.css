@@ -26,3 +26,15 @@
 .profile {
     background-color: aqua;
 }
+
+h1 {
+    font-family: 'Girassol', cursive;
+}
+.newblog {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

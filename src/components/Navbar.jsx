@@ -38,6 +38,10 @@ export default function Navbar() {
     navigate("/profile");
     setAnchorEl(null);
   };
+  const ClickNewBlog = () => {
+    navigate("/newblog");
+    setAnchorEl(null);
+  };
   const ClickLogOut = () => {
     cikis();
     setAnchorEl(null);
@@ -84,7 +88,7 @@ export default function Navbar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={ClickProfile}>Profile</MenuItem>
-                <MenuItem>New</MenuItem>
+                <MenuItem onClick={ClickNewBlog}>New</MenuItem>
                 <MenuItem onClick={ClickLogOut}>Logout</MenuItem>
               </Menu>
             ) : (
