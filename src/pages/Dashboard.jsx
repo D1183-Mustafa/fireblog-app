@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import AppContext from "../contexts/AppContext";
 import LoginAlert from "./LoginAlert";
-import "./Login.css"
+import "./Login.css";
+import {useFetch} from "../helpers/functions";
 function Dashboard() {
   const { currentUser } = useContext(AppContext);
-  console.log(currentUser);
+  const {databaseBlog} = useFetch()
+  console.log(databaseBlog);
   return (
   <div>
     {currentUser && <LoginAlert />}
