@@ -3,6 +3,7 @@ import AppContext from "../contexts/AppContext";
 import LoginAlert from "./LoginAlert";
 import "./Login.css";
 import {useFetch} from "../helpers/functions";
+import BlogForm from "../components/BlogForm";
 function Dashboard() {
   const { currentUser } = useContext(AppContext);
   const {databaseBlog} = useFetch()
@@ -11,6 +12,7 @@ function Dashboard() {
   <div>
     {currentUser && <LoginAlert />}
     <h1>----DASHBOARD----</h1>
+    <BlogForm databaseBlog={databaseBlog}/>
   </div>);
 }
 

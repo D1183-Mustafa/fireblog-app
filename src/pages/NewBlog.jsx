@@ -7,8 +7,10 @@ import LogoBlog from "../assets/logoblog.png";
 import { useContext } from "react";
 import AppContext from "../contexts/AppContext";
 import { AddBlog } from "../helpers/functions";
+import { useNavigate } from "react-router-dom";
 
 function NewBlog() {
+  const navigate =useNavigate()
   const { blog, setBlog,currentUser } = useContext(AppContext);
   const handleChange = (e) => {
     const day = new Date().getDate();
@@ -21,8 +23,10 @@ function NewBlog() {
   const handleSubmit = (e) => {
     e.preventDefault();
     AddBlog(blog);
-
+    navigate("/");
+    setBlog({[e.target.name]:""})
   }
+  console.log(blog)
   return (
     <div className="newblog">
       <img src={LogoBlog} alt="" style={{ width: "150px" }} />
