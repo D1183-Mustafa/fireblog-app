@@ -5,6 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import Detail from "../pages/Detail";
 import Login from "../pages/Login";
 import NewBlog from "../pages/NewBlog";
+import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
 import Register from "../pages/Register";
 
@@ -19,7 +20,10 @@ function AppRouter() {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile/>}/>   
         <Route path="/newblog" element={<NewBlog/>}/>
-        <Route path="/:id" element={<Detail/>}/>
+        <Route path="/*" element={<NotFound/>}/>
+        <Route path="/detail/:id" element={<Detail/>}/>
+
+
       </Routes>
     </Router>
   );

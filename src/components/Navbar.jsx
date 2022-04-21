@@ -44,6 +44,7 @@ export default function Navbar() {
   };
   const ClickLogOut = () => {
     cikis();
+    navigate("/");
     setAnchorEl(null);
   };
   return (
