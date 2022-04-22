@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 function BlogForm({databaseBlog}) {
   return (
     <div>
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "100%"}}>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             {
                 databaseBlog?.map((item,index) => {
@@ -17,7 +17,6 @@ function BlogForm({databaseBlog}) {
           
         </Grid>
       </Box>
-      Blog Form
       
     </div>
   );

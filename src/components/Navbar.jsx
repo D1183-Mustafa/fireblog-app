@@ -54,11 +54,11 @@ export default function Navbar() {
           <Avatar
             alt="Remy Sharp"
             src={LogoPng}
-            sx={{ width: 56, height: 56 }}
+            sx={{ width: 56, height: 56 ,cursor: "pointer"}}
             onClick={() => navigate("/")}
           />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Fire Blog
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 ,fontFamily:"'Girassol', cursive",cursor: "pointer"}} onClick={() => navigate("/")}>
+         {" ────<MustafaAltaş/> Blog ────"}
           </Typography>
 
           <div>

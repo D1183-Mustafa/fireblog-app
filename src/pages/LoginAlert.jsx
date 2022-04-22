@@ -14,7 +14,7 @@ export default function LoginAlert() {
     setOpen(true);
     setTimeout(() => {
         setOpen(false);
-    },3000)
+    },1500)
   },[]);
 
 
@@ -29,7 +29,7 @@ export default function LoginAlert() {
 
   return (
     <Stack spacing={2} sx={{ width: '100%' }}>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={1500} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           Başarılı Giriş Yapıldı!!!
         </Alert>

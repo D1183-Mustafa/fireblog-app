@@ -8,6 +8,7 @@ import NewBlog from "../pages/NewBlog";
 import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
 import Register from "../pages/Register";
+import UpdateBlog from "../pages/UpdateBlog";
 
 function AppRouter() {
   return (
@@ -22,6 +23,7 @@ function AppRouter() {
         <Route path="/newblog" element={<NewBlog/>}/>
         <Route path="/*" element={<NotFound/>}/>
         <Route path="/detail/:id" element={<Detail/>}/>
+        <Route path="/updateblog" element={<UpdateBlog/>}/>
 
 
       </Routes>

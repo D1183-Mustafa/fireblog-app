@@ -90,7 +90,7 @@ function Login() {
                 sx={{ width: "30%" }}
                 type="submit"
               >
-                Register
+                Login
               </Button>
             </div>
           </form>

@@ -1,5 +1,6 @@
+/* eslint-disable no-sequences */
 import { app } from "./firebase";
-import { getDatabase,ref,set ,push,onValue} from "firebase/database";
+import { getDatabase,ref,set ,push,onValue, remove,update} from "firebase/database";
 import { useEffect, useState } from "react";
 
 
@@ -34,4 +35,18 @@ export const useFetch = () =>{
 
     },[])
     return {databaseBlog}
+}
+
+export const DeleteBlog =(id) =>{
+    const db = getDatabase();
+    remove(ref(db,"mustafablog/" + id))
+}
+
+
+export const EditBlog = (updateBlog) =>{
+    const db = getDatabase();
+    const updates = {};
+    updates['mustafablog/'+updateBlog.id] = updateBlog;
+    return update(ref(db), updates);
+
 }
