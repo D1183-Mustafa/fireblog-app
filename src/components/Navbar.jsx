@@ -50,7 +50,7 @@ export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar style={{ backgroundColor: "#85C88A" }}>
+        <Toolbar style={{ backgroundColor: "#00092C" }}>
           <Avatar
             alt="Remy Sharp"
             src={LogoPng}

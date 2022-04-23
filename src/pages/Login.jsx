@@ -7,10 +7,10 @@ import { Formik } from "formik";
 import "./Login.css";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { kullaniciGiris } from "../helpers/firebase";
+import { googleLogin, kullaniciGiris } from "../helpers/firebase";
 import AppContext from "../contexts/AppContext";
 import LogOut from "./LogOut";
-
+import GoogleIcon from "@mui/icons-material/Google";
 
 const myValidationSchema = Yup.object({
   email: Yup.string()
@@ -26,7 +26,7 @@ const myValidationSchema = Yup.object({
 });
 
 function Login() {
-    const {setError} = useContext(AppContext)
+  const { setError } = useContext(AppContext);
   const navigate = useNavigate();
   const initialValues = {
     email: "",
@@ -39,13 +39,17 @@ function Login() {
     //       email:${values.email}
     //       `
     //   )
-    kullaniciGiris(values.email, values.password, navigate,setError);
+    kullaniciGiris(values.email, values.password, navigate, setError);
     resetForm();
+  };
+
+  const googleIleGirisIcın = () => {
+    googleLogin(navigate);
   };
   console.log(initialValues);
   return (
     <div className="mustafa">
-        <LogOut/>
+      <LogOut />
       <HowToRegIcon sx={{ transform: "scale(3)" }} />
       <h1>Login Page</h1>
       <Formik
@@ -83,12 +87,21 @@ function Login() {
               error={touched.password && Boolean(errors.password)}
               onBlur={handleBlur}
             />
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center" ,flexDirection:"column",alignItems:"center",gap:"10px"}}>
               <Button
                 variant="contained"
                 color="success"
                 sx={{ width: "30%" }}
                 type="submit"
+              >
+                Login
+              </Button>
+              <Button
+                variant="contained"
+                color="success"
+                sx={{ width: "30%" }}
+                endIcon={<GoogleIcon />}
+                onClick={googleIleGirisIcın}
               >
                 Login
               </Button>

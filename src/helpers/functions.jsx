@@ -50,3 +50,4 @@ export const EditBlog = (updateBlog) =>{
     return update(ref(db), updates);
 
 }
+

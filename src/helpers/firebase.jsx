@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth ,createUserWithEmailAndPassword ,signInWithEmailAndPassword ,signOut,onAuthStateChanged} from "firebase/auth";
+import { getAuth ,createUserWithEmailAndPassword ,signInWithEmailAndPassword ,signOut,onAuthStateChanged, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -58,4 +58,15 @@ export const mevcutKullanici = (setCurrentUser) =>{
             setCurrentUser(false)
         }
       });
+}
+
+export const googleLogin = (navigate) =>{
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    console.log(result)
+    navigate("/")
+  }).catch((error) => {
+    console.log(error)
+  });
 }
