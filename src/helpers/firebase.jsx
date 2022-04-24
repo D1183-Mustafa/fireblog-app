@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth ,createUserWithEmailAndPassword ,signInWithEmailAndPassword ,signOut,onAuthStateChanged, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
+import { olumluMesaj, olumsuzMesaj } from "./toast";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -23,11 +24,13 @@ export const yeniKullaniciEkle = (email, password,navigate) =>{
   .then((userCredential) => {
     // Signed in 
     console.log(userCredential);
-    navigate("/login")
+    navigate("/login");
+    olumluMesaj("Kullanıcı oluşturuldu!")
     // ...
   })
   .catch((error) => {
       console.log(error);
+      olumsuzMesaj(`${error}`)
     // ..
   });
 }
@@ -38,15 +41,17 @@ export const kullaniciGiris = (email, password,navigete,setError) => {
       // Signed in 
       console.log(userCredential.user.email);
       navigete("/");
+      olumluMesaj("Giriş yapıldı")
       // ...
     })
     .catch((error) => {
-        setError(true)
+        olumsuzMesaj(`${error}`)
     });
 }
 
 export const cikis =() => {
     signOut(auth);
+    olumluMesaj("Çıkış yapıldı.")
 
 }
 
@@ -65,8 +70,10 @@ export const googleLogin = (navigate) =>{
   signInWithPopup(auth, provider)
   .then((result) => {
     console.log(result)
-    navigate("/")
+    navigate("/");
+    olumluMesaj("Giriş yapıldı")
   }).catch((error) => {
     console.log(error)
+    olumsuzMesaj(`${error}`)
   });
 }

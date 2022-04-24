@@ -1,7 +1,9 @@
 /* eslint-disable no-sequences */
+// eslint-disable-next-line no-unused-vars
 import { app } from "./firebase";
 import { getDatabase,ref,set ,push,onValue, remove,update} from "firebase/database";
 import { useEffect, useState } from "react";
+import { olumluMesaj } from "./toast";
 
 
 export const AddBlog = (blog) =>{
@@ -15,6 +17,7 @@ export const AddBlog = (blog) =>{
         content: blog.content,
         date : blog.date
     })
+    olumluMesaj("Başarılı bir şekilde eklendi!")
 }
 
 export const useFetch = () =>{
@@ -39,7 +42,8 @@ export const useFetch = () =>{
 
 export const DeleteBlog =(id) =>{
     const db = getDatabase();
-    remove(ref(db,"mustafablog/" + id))
+    remove(ref(db,"mustafablog/" + id));
+    olumluMesaj("Başarılı bir şekilde silindi")
 }
 
 
@@ -47,7 +51,9 @@ export const EditBlog = (updateBlog) =>{
     const db = getDatabase();
     const updates = {};
     updates['mustafablog/'+updateBlog.id] = updateBlog;
+    olumluMesaj("Blogunuz güncellendi")
     return update(ref(db), updates);
+    
 
 }
 

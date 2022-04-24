@@ -9,7 +9,6 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { googleLogin, kullaniciGiris } from "../helpers/firebase";
 import AppContext from "../contexts/AppContext";
-import LogOut from "./LogOut";
 import GoogleIcon from "@mui/icons-material/Google";
 
 const myValidationSchema = Yup.object({
@@ -49,7 +48,6 @@ function Login() {
   console.log(initialValues);
   return (
     <div className="mustafa">
-      <LogOut />
       <HowToRegIcon sx={{ transform: "scale(3)" }} />
       <h1>Login Page</h1>
       <Formik

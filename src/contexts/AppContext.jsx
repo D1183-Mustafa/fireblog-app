@@ -6,7 +6,6 @@ const AppContext = createContext();
 
 export const AppContextprovider = ({children}) => {
     const [currentUser,setcurrentUser] = useState("")
-    const [error,setError] = useState(false);
     const [blog,setBlog] = useState({
         user : "",
         title: "",
@@ -19,7 +18,7 @@ export const AppContextprovider = ({children}) => {
     },[])
     console.log("mevcut kul",currentUser);
     return(
-        <AppContext.Provider value={{currentUser,setcurrentUser,setError,error,setBlog,blog}}>
+        <AppContext.Provider value={{currentUser,setcurrentUser,setBlog,blog}}>
             {children}
         </AppContext.Provider>
     )
