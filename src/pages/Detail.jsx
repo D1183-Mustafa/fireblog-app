@@ -21,6 +21,7 @@ function Detail() {
   const navigate = useNavigate()
   useEffect(() => {
     setDetail(location.state.item);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(detail);
 
